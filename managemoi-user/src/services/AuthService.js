@@ -41,3 +41,12 @@ export async function asRead(message_id){
         console.log(error);
     }
 }
+
+export async function unReadMessageCount(){
+    try {
+        const response = await api.get('/messages/non-lu')
+        return response.data
+    } catch (error) {
+        
+    }
+}

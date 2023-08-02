@@ -134,7 +134,7 @@ export default {
                             </div>
 
                             <div class="credits">
-                                Fait par <a href="https://in-novation.tech/">IN-NOVATION</a>
+                                Fait par <a href="https://managemoi.me/">ManageMoi</a>
                             </div>
 
                         </div>

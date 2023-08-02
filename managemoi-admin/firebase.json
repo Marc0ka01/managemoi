@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "admin-managemoi",
-    "public": "public",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",

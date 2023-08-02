@@ -69,7 +69,7 @@ export default {
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="https://wa.me/message/WB4EEQQUEEFLJ1">
+                <a class="nav-link collapsed" href="https://www.instagram.com/managemoici/">
                     <i class='bx bx-message-dots'></i>
                     <span>Contactez le service clientèle</span>
                 </a>

@@ -174,7 +174,7 @@ export default {
 
                                         <div class="col-12">
                                             <label for="ville" class="form-label">Ville</label>
-                                            <select name="ville" id="ville" class="form-select" v-model="data.ville">
+                                            <select name="ville" id="ville" class="form-select" v-model="data.ville" required>
                                                 <option selected>-- Choisissez votre ville --</option>
                                                 <option v-for="ville in villesTriees" :key="ville" :value="ville">{{ ville
                                                 }}</option>
@@ -226,7 +226,7 @@ export default {
                             </div>
 
                             <div class="credits">
-                                Fait par <a href="https://in-novation.tech/">IN-NOVATION</a>
+                                Fait par <a href="https://managemoi.me/">ManageMoi</a>
                             </div>
 
                         </div>

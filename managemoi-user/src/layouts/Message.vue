@@ -9,13 +9,22 @@ export default {
             message: "",
             id: 1,
             messageM: '',
-            lien:'',
+            lien: '',
         };
     },
     mounted() {
         this.index();
     },
     methods: {
+        formatDate(timestamp) {
+            const date = new Date(timestamp);
+
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const year = date.getFullYear();
+
+            return `${day}-${month}-${year}`;
+        },
         async index() {
             const response = await allMessage(); // Passer le terme de recherche à l'appel à l'API
             this.data = response.data; // Mettre à jour les données
@@ -29,13 +38,13 @@ export default {
             const message_id = index
 
             const response = await asRead(message_id)
-            if(response.status === 200){
+            if (response.status === 200) {
                 console.log(response.message, index)
             }
-            
+
         },
         truncated(desc) {
-            const maxLength = 40; // Longueur maximale de la description
+            const maxLength = 20; // Longueur maximale de la description
             if (desc.length <= maxLength) {
                 return desc; // Retourne la description complète si elle est assez courte ou si l'option d'affichage complet est activée
             }
@@ -78,11 +87,15 @@ export default {
                                 </thead>
                                 <tbody v-if="message === ''">
                                     <tr v-for="(row, index) in data" :key="index">
-                                        <td>{{ truncated(row.message) }}</td>
-                                        <td>{{ row.date_send }}</td>
+                                        <td>
+                                            {{ truncated(row.message) }}
+                                            <span class="badge rounded-pill bg-danger" v-if="!row.lu">!</span>
+                                        </td>
+                                        <td>{{ formatDate(row.date_send) }}</td>
                                         <td>
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#messageModal" @click="markedRead(index, row.message, row.lien)">
+                                                data-bs-target="#messageModal"
+                                                @click="markedRead(index, row.message, row.lien)">
                                                 <i class="bx bx-show"></i></button>
                                         </td>
                                     </tr>
@@ -99,7 +112,7 @@ export default {
 
     </main>
 
-    <MessageModal :msg="messageM" :lien="lien"/>
+    <MessageModal :msg="messageM" :lien="lien" />
 </template>
 
 <style scoped></style>

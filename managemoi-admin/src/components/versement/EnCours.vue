@@ -67,7 +67,7 @@ export default {
         searchEnCours() {
             // Mettre à jour filteredData lorsque searchUser change
             this.currentPage = 1 // Réinitialiser la page actuelle à la première page lors de la recherche
-            this.demandeEnCours(this.currentPage) // Appeler la méthode index() pour récupérer les utilisateurs correspondant à la recherche
+            this.demandeEnCours('en_cours',this.currentPage) // Appeler la méthode index() pour récupérer les utilisateurs correspondant à la recherche
         },
     },
     methods: {
@@ -111,19 +111,19 @@ export default {
         goToPage(page) {
             if (page !== this.currentPage) {
                 this.currentPage = page // Mettre à jour la page actuelle
-                this.demandeEnCours(this.currentPage) // Appeler la méthode pour récupérer les utilisateurs de la nouvelle page
+                this.demandeEnCours('en_cours',this.currentPage) // Appeler la méthode pour récupérer les utilisateurs de la nouvelle page
             }
         },
         nextPage() {
             if (this.currentPage < this.totalPages) {
                 this.currentPage++
-                this.demandeEnCours(this.currentPage)
+                this.demandeEnCours('en_cours',this.currentPage)
             }
         },
         prevPage() {
             if (this.currentPage > 1) {
                 this.currentPage--
-                this.demandeEnCours(this.currentPage)
+                this.demandeEnCours('en_cours',this.currentPage)
             }
         },
     }

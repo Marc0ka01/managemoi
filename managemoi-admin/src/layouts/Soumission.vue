@@ -142,6 +142,7 @@ export default {
                             <table class="table">
                                 <thead>
                                     <tr>
+                                        <th>id</th>
                                         <th>Date</th>
                                         <th>Nom</th>
                                         <th>Contact</th>
@@ -153,7 +154,8 @@ export default {
                                 </thead>
 
                                 <tbody v-if="message === ''">
-                                    <tr v-for="data in filteredData">
+                                    <tr v-for="(data, index) in filteredData" :key="index">
+                                        <td>{{ index + 1 }}</td>
                                         <td>{{ data.created_at }}</td>
                                         <td>{{ data.user.name }}</td>
                                         <td>{{ data.user.contact }}</td>

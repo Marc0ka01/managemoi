@@ -842,6 +842,10 @@ h6 {
     color: #ff771d;
     background: #ffecdf;
 }
+.dashboard .danger-card .card-icon {
+    color: #ff251d;
+    background: #ffe0df;
+}
 
 /* Activity */
 .dashboard .activity {

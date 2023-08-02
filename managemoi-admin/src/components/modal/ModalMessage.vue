@@ -16,8 +16,11 @@ export default {
         const year = today.getFullYear();
         const month = String(today.getMonth() + 1).padStart(2, '0'); // Ajoute un zéro en tête si le mois est inférieur à 10
         const day = String(today.getDate()).padStart(2, '0'); // Ajoute un zéro en tête si le jour est inférieur à 10
+        const hours = String(today.getHours()).padStart(2, '0'); // Ajoute un zéro en tête si l'heure est inférieure à 10
+        const minutes = String(today.getMinutes()).padStart(2, '0'); // Ajoute un zéro en tête si les minutes sont inférieures à 10
+        const seconds = String(today.getSeconds()).padStart(2, '0'); // Ajoute un zéro en tête si les secondes sont inférieures à 10
 
-        this.date = `${year}-${month}-${day}`;
+        this.date = new Date(year, month - 1, day, hours, minutes, seconds); // Ajoute un zéro en tête si le jour est inférieur à 10
     },
     methods: {
         showAlert(message, icon, reloadPage = false) {
